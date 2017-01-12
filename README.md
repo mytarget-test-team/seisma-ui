@@ -12,7 +12,7 @@ Versions recommend
 With nvm
 --------
 
-    nvm use 6.3.1
+    nvm install 6.3.1 && nvm use 6.3.1
 
 
 Build
@@ -25,3 +25,10 @@ Run watch for development
 -------------------------
 
     npm run watch
+
+
+Links
+-----
+
+* Server: https://github.com/trifonovmixail/seisma-server
+* Puppet(vagrant VM, docker container): https://github.com/trifonovmixail/seisma-puppet

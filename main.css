@@ -694,3 +694,7 @@ select {
 .case-result-status__item_skipped {
   background-color: #ccc;
 }
+
+p.case-reason {
+  padding-right: 20px;
+}
