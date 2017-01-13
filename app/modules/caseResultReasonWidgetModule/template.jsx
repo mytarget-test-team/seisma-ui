@@ -64,6 +64,6 @@ class DialectReason {
 
 
 export default function caseResultReasonWidgetTemplate(data) {
-    let dialectReason = DialectReason(data.reason, data.dialect);
+    let dialectReason = new DialectReason(data.reason, data.dialect);
     return dialectReason.render()
 }
