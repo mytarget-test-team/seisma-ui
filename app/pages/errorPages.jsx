@@ -8,7 +8,7 @@ import MainMenuModule from '../modules/mainMenuModule';
 import PageTitleModule from '../modules/pageTitleModule';
 
 
-const ISSUE_TRACKER_URL = 'https://github.com/trifonovmixail/seisma/issues';
+const ISSUE_TRACKER_URL = 'https://github.com/trifonovmixail/seisma-ui/issues';
 
 
 export class InternalErrorPage extends React.Component {
