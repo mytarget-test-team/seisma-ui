@@ -7,7 +7,8 @@ import { CaseResultByIdLoader } from '../../api/caseResource';
 
 
 const FIELDS_TO_LOAD = [
-    'reason'
+    'reason',
+    'dialect'
 ];
 
 

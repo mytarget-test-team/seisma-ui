@@ -3,26 +3,67 @@
 import React from 'react';
 
 
-export default function caseResultReasonWidgetTemplate(data) {
-    let needBold = false;
-    let isFirstLine = true;
+class DialectReason {
 
-    return <div>{data.reason.split('\n').map((item, index) => {
-        let node;
+    constructor(reason, dialect) {
+        this.reason = reason;
+        this.dialect = dialect;
+    }
 
-        if (isFirstLine || needBold) {
-            needBold = false;
-            isFirstLine = false;
+    render_python() {
+        let needBold = false;
+        let isFirstLine = true;
 
-            node = <h3 key={`reason_text_${index}`}>{item}<br/></h3>;
-        } else {
-            if (item === '') {
-                needBold = true;
-            }
+        return (
+            <div>
+                {
+                    this.reason.split('\n').map((item, index) => {
+                    let node;
 
-            node = <p key={`reason_text_${index}`} className="case-reason">{item}<br/></p>;
+                    if (isFirstLine || needBold) {
+                        needBold = false;
+                        isFirstLine = false;
+
+                        node = <h3 key={`reason_text_${index}`}>{item}<br/></h3>;
+                    } else {
+                        if (item === '') {
+                            needBold = true;
+                        }
+
+                        node = <p key={`reason_text_${index}`} className="case-reason">{item}<br/></p>;
+                    }
+
+                    return node
+                    })
+                }
+            </div>
+        )
+    }
+
+    render_default() {
+        return (
+            <div>
+                {
+                    this.reason.split('\n').map((item, index) => {
+                        return <p key={`reason_text_${index}`}>{item}<br/></p>;
+                    })
+                }
+            </div>
+        )
+    }
+
+    render() {
+        switch (this.dialect) {
+            case 'python':
+                return this.render_python();
+            default:
+                return this.render_default();
         }
+    }
+}
 
-        return node
-    })}</div>
+
+export default function caseResultReasonWidgetTemplate(data) {
+    let dialectReason = DialectReason(data.reason, data.dialect);
+    return dialectReason.render()
 }
