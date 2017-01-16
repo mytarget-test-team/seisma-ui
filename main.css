@@ -312,6 +312,9 @@ a:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.widget .widget__list-item > *:last-child {
+  text-align: right;
+}
 
 .widget .widget__list-item a {
   color: #687370;
