@@ -35,7 +35,7 @@ export function isSubClass(A, B) {
 }
 
 
-export function cropString(str, len = 22) {
+export function cropString(str, len = 30) {
     /*
         Do crop string if length of string more len param
      */
