@@ -33,3 +33,15 @@ export function isSubClass(A, B) {
      */
     return (A.prototype instanceof B)
 }
+
+
+export function cropString(str, len = 22) {
+    /*
+        Do crop string if length of string more len param
+     */
+    if (str.length > len) {
+        return `${str.slice(0, len)}...`
+    }
+
+    return str
+}
