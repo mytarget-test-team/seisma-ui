@@ -7,11 +7,16 @@ import URLs from '../../urls';
 import { cropString } from '../../utils/common';
 
 
+const MAX_LEN_OF_TITLE = 30;
+
+
 let jobFailBuildsWidgetTemplate = [
     (item, index) => {
         let link = URLs.build.link(item.job.name, item.name);
 
-        return ( <Link to={link} key={`fail_build_title_${index}`}>{cropString(item.title)}</Link> )
+        return ( <Link to={link} key={`fail_build_title_${index}`}>{
+            cropString(item.title, MAX_LEN_OF_TITLE)
+        }</Link> )
     },
     (item, index) => {
         return ( <small key={`fail_build_date_${index}`}>{item.date}</small> )
