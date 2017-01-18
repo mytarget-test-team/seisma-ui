@@ -18,13 +18,13 @@ const FILTER_OPTIONS = [
             type: 'date',
             name: 'date_from',
             title: 'Date from',
-            placeholder: 'Date range'
+            placeholder: 'Date'
         },
         {
             type: 'date',
             name: 'date_to',
             title: 'Date to',
-            placeholder: 'Date range'
+            placeholder: 'Date'
         }
     ],
     [
@@ -32,17 +32,17 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'runtime_less',
             title: 'Runtime less',
-            placeholder: 'When runtime less value',
+            placeholder: 'Float',
             validator: greaterZeroValidator,
-            errorMessage: 'Runtime can be greater or equal 1'
+            errorMessage: 'Runtime can be greater or equal 0.1'
         },
         {
             type: 'number',
             name: 'runtime_more',
             title: 'Runtime more',
-            placeholder: 'When runtime more value',
+            placeholder: 'Float',
             validator: greaterZeroValidator,
-            errorMessage: 'Runtime can be greater or equal 1'
+            errorMessage: 'Runtime can be greater or equal 0.1'
         }
     ],
     {

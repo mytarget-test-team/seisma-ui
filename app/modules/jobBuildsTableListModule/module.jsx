@@ -18,13 +18,13 @@ const FILTER_OPTIONS = [
             type: 'date',
             name: 'date_from',
             title: 'Date from',
-            placeholder: 'Date range'
+            placeholder: 'Date'
         },
         {
             type: 'date',
             name: 'date_to',
             title: 'Date to',
-            placeholder: 'Date range'
+            placeholder: 'Date'
         }
     ],
     [
@@ -32,17 +32,17 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'runtime_less',
             title: 'Runtime less',
-            placeholder: 'When runtime less value',
+            placeholder: 'Float',
             validator: greaterZeroValidator,
-            errorMessage: 'Runtime can be greater or equal 1'
+            errorMessage: 'Runtime can be greater or equal 0.1'
         },
         {
             type: 'number',
             name: 'runtime_more',
             title: 'Runtime more',
-            placeholder: 'When runtime more value',
+            placeholder: 'Float',
             validator: greaterZeroValidator,
-            errorMessage: 'Runtime can be greater or equal 1'
+            errorMessage: 'Runtime can be greater or equal 0.1'
         }
     ],
     [
@@ -50,7 +50,7 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'fail_count_less',
             title: 'Fail count less',
-            placeholder: 'When fails less value',
+            placeholder: 'Integer',
             validator: greaterZeroValidator,
             errorMessage: 'Fail count can be greater or equal 1'
         },
@@ -58,7 +58,7 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'fail_count_more',
             title: 'Fail count more',
-            placeholder: 'When fails more value',
+            placeholder: 'Integer',
             validator: greaterZeroValidator,
             errorMessage: 'Fail count can be greater or equal 1'
         }
@@ -68,7 +68,7 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'error_count_less',
             title: 'Error count less',
-            placeholder: 'When errors less value',
+            placeholder: 'Integer',
             validator: greaterZeroValidator,
             errorMessage: 'Error count can be greater or equal 1'
         },
@@ -76,7 +76,7 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'error_count_more',
             title: 'Error count more',
-            placeholder: 'When errors more value',
+            placeholder: 'Integer',
             validator: greaterZeroValidator,
             errorMessage: 'Error count can be greater or equal 1'
         }
@@ -86,7 +86,7 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'success_count_less',
             title: 'Success count less',
-            placeholder: 'When successes less value',
+            placeholder: 'Integer',
             validator: greaterZeroValidator,
             errorMessage: 'Success count can be greater or equal 1'
         },
@@ -94,7 +94,7 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'success_count_more',
             title: 'Success count more',
-            placeholder: 'When successes more value',
+            placeholder: 'Integer',
             validator: greaterZeroValidator,
             errorMessage: 'Success count can be greater or equal 1'
         }

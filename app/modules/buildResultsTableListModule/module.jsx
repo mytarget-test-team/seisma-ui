@@ -18,7 +18,7 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'runtime_less',
             title: 'Runtime less',
-            placeholder: 'When runtime less value',
+            placeholder: 'Integer',
             validator: greaterZeroValidator,
             errorMessage: 'Runtime can be greater or equal 1'
         },
@@ -26,9 +26,9 @@ const FILTER_OPTIONS = [
             type: 'number',
             name: 'runtime_more',
             title: 'Runtime more',
-            placeholder: 'When runtime more value',
+            placeholder: 'Float',
             validator: greaterZeroValidator,
-            errorMessage: 'Runtime can be greater or equal 1'
+            errorMessage: 'Runtime can be greater or equal 0.1'
         }
     ],
     {
