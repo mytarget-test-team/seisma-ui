@@ -197,22 +197,47 @@ export default class FilterTemplate extends Template {
         )
     }
 
-    renderInput(option, index) {
-        let state = this.props.filterOptionsState[option.name] || {};
+    renderFloatInput(option, index, inputProps) {
+        return (
+            <label key={`filter_input_${index}`}>
+                <div>{option.title}</div>
+                <input
+                    type='number'
+                    step='0.1'
+                    min='0.1'
+                    {...inputProps} />
+            </label>
+        )
+    }
 
+    renderNumberInput(option, index, inputProps) {
         return (
             <label key={`filter_input_${index}`}>
                 <div>{option.title}</div>
                 <input
                     type={option.type}
-                    step={option.name.indexOf('runtime') ? '1' : '0.1'}
-                    min={option.name.indexOf('runtime') ? '1' : '0.1'}
-                    name={option.name}
-                    placeholder={option.placeholder}
-                    value={state.value || ''}
-                    onChange={this.handleChangeInput.bind(this)} />
+                    step='1'
+                    min='1'
+                    {...inputProps} />
             </label>
         )
+    }
+
+    renderInput(option, index) {
+        let state = this.props.filterOptionsState[option.name] || {};
+
+        let inputProps = {
+            name: option.name,
+            placeholder: option.placeholder,
+            value: state.value || '',
+            onChange: this.handleChangeInput.bind(this)
+        };
+
+        if (option.type === 'float') {
+            return this.renderFloatInput(option, index, inputProps)
+        }
+
+        return this.renderNumberInput(option, index, inputProps)
     }
 
     renderErrors() {
