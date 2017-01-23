@@ -197,28 +197,34 @@ export default class FilterTemplate extends Template {
         )
     }
 
-    renderFloatInput(option, index, inputProps) {
+    renderFloatInput(option, index, basicInputProps) {
+        let inputProps = {
+            type: 'number',
+            step: '0.1',
+            min: '0.1'
+        };
+
         return (
             <label key={`filter_input_${index}`}>
                 <div>{option.title}</div>
                 <input
-                    type='number'
-                    step='0.1'
-                    min='0.1'
-                    {...inputProps} />
+                    {...basicInputProps} {...inputProps} />
             </label>
         )
     }
 
-    renderNumberInput(option, index, inputProps) {
+    renderNumberInput(option, index, basicInputProps) {
+        let inputProps = {
+            type: option.type,
+            step: '1',
+            min: '1'
+        };
+
         return (
             <label key={`filter_input_${index}`}>
                 <div>{option.title}</div>
                 <input
-                    type={option.type}
-                    step='1'
-                    min='1'
-                    {...inputProps} />
+                    {...basicInputProps} {...inputProps} />
             </label>
         )
     }
@@ -226,7 +232,7 @@ export default class FilterTemplate extends Template {
     renderInput(option, index) {
         let state = this.props.filterOptionsState[option.name] || {};
 
-        let inputProps = {
+        let basicInputProps = {
             name: option.name,
             placeholder: option.placeholder,
             value: state.value || '',
@@ -234,10 +240,10 @@ export default class FilterTemplate extends Template {
         };
 
         if (option.type === 'float') {
-            return this.renderFloatInput(option, index, inputProps)
+            return this.renderFloatInput(option, index, basicInputProps)
         }
 
-        return this.renderNumberInput(option, index, inputProps)
+        return this.renderNumberInput(option, index, basicInputProps)
     }
 
     renderErrors() {
