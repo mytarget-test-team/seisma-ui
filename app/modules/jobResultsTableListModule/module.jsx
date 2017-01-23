@@ -56,6 +56,15 @@ const FILTER_OPTIONS = [
             Skipped: 'skipped'
         },
         title: 'Status'
+    },
+    {
+        type: 'select',
+        name: 'sort_by',
+        selectOptions: {
+            Date: 'date',
+            Runtime: 'runtime'
+        },
+        title: 'Sort by'
     }
 ];
 
