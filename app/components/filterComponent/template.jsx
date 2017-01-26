@@ -204,11 +204,13 @@ export default class FilterTemplate extends Template {
             min: '0.1'
         };
 
+        let props = {...basicInputProps, ...inputProps};
+
         return (
             <label key={`filter_input_${index}`}>
                 <div>{option.title}</div>
                 <input
-                    {...basicInputProps} {...inputProps} />
+                    {...props} />
             </label>
         )
     }
@@ -220,11 +222,13 @@ export default class FilterTemplate extends Template {
             min: '1'
         };
 
+        let props = {...basicInputProps, ...inputProps};
+
         return (
             <label key={`filter_input_${index}`}>
                 <div>{option.title}</div>
                 <input
-                    {...basicInputProps} {...inputProps} />
+                    {...props} />
             </label>
         )
     }
