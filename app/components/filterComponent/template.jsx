@@ -197,22 +197,57 @@ export default class FilterTemplate extends Template {
         )
     }
 
-    renderInput(option, index) {
-        let state = this.props.filterOptionsState[option.name] || {};
+    renderFloatInput(option, index, basicInputProps) {
+        let inputProps = {
+            type: 'number',
+            step: '0.1',
+            min: '0.1'
+        };
+
+        let props = {...basicInputProps, ...inputProps};
 
         return (
             <label key={`filter_input_${index}`}>
                 <div>{option.title}</div>
                 <input
-                    type={option.type}
-                    step={option.name.indexOf('runtime') ? '1' : '0.1'}
-                    min={option.name.indexOf('runtime') ? '1' : '0.1'}
-                    name={option.name}
-                    placeholder={option.placeholder}
-                    value={state.value || ''}
-                    onChange={this.handleChangeInput.bind(this)} />
+                    {...props} />
             </label>
         )
+    }
+
+    renderNumberInput(option, index, basicInputProps) {
+        let inputProps = {
+            type: option.type,
+            step: '1',
+            min: '1'
+        };
+
+        let props = {...basicInputProps, ...inputProps};
+
+        return (
+            <label key={`filter_input_${index}`}>
+                <div>{option.title}</div>
+                <input
+                    {...props} />
+            </label>
+        )
+    }
+
+    renderInput(option, index) {
+        let state = this.props.filterOptionsState[option.name] || {};
+
+        let basicInputProps = {
+            name: option.name,
+            placeholder: option.placeholder,
+            value: state.value || '',
+            onChange: this.handleChangeInput.bind(this)
+        };
+
+        if (option.type === 'float') {
+            return this.renderFloatInput(option, index, basicInputProps)
+        }
+
+        return this.renderNumberInput(option, index, basicInputProps)
     }
 
     renderErrors() {

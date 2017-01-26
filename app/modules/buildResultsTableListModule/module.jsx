@@ -15,7 +15,7 @@ import buildResultsTableListTemplate from './template';
 const FILTER_OPTIONS = [
     [
         {
-            type: 'number',
+            type: 'float',
             name: 'runtime_less',
             title: 'Runtime less',
             placeholder: 'Integer',
@@ -23,7 +23,7 @@ const FILTER_OPTIONS = [
             errorMessage: 'Runtime can be greater or equal 1'
         },
         {
-            type: 'number',
+            type: 'float',
             name: 'runtime_more',
             title: 'Runtime more',
             placeholder: 'Float',
