@@ -48,7 +48,7 @@ function main() {
     }
 
     let URLsKeys = Object.keys(URLs);
-    let pageContainer = new PageContainer(...URLsKeys.filter((key) => URLs[key].page !== null).map((key) => {
+    let pageContainer = new PageContainer(...URLsKeys.map((key) => {
         let url = URLs[key];
         return url.page(url.route)
     }));

@@ -10,7 +10,7 @@ class DialectReason {
         this.dialect = dialect;
     }
 
-    render_python() {
+    renderPython() {
         let needBold = false;
         let isFirstLine = true;
 
@@ -40,7 +40,7 @@ class DialectReason {
         )
     }
 
-    render_default() {
+    renderDefault() {
         return (
             <div>
                 {
@@ -55,9 +55,9 @@ class DialectReason {
     render() {
         switch (this.dialect) {
             case 'python':
-                return this.render_python();
+                return this.renderPython();
             default:
-                return this.render_default();
+                return this.renderDefault();
         }
     }
 }
