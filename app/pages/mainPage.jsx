@@ -8,7 +8,7 @@ import MainMenuModule from '../modules/mainMenuModule';
 import PageTitleModule from '../modules/pageTitleModule';
 
 import JobsWidgetModule from '../modules/jobsWidgetModule';
-import FailCasesWidgetModule from '../modules/failCasesWidgetModule';
+import CasesStatWidgetModule from '../modules/casesStatWidgetModule';
 import FailBuildsWidgetModule from '../modules/failBuildsWidgetModule';
 import RunningBuildsWidgetModule from '../modules/runningBuildsWidgetModule';
 
@@ -22,10 +22,10 @@ export default class MainPage extends Page {
                 <MainMenuModule/>
                 <PageTitleModule title="For today"/>
                 <div className="content">
+                    <JobsWidgetModule maxRecords={5}/>
                     <RunningBuildsWidgetModule maxRecords={5}/>
                     <FailBuildsWidgetModule maxRecords={5}/>
-                    <FailCasesWidgetModule maxRecords={5}/>
-                    <JobsWidgetModule maxRecords={5}/>
+                    <CasesStatWidgetModule maxRecords={5}/>
                 </div>
             </div>
         )
