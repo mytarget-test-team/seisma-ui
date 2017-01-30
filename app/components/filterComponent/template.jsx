@@ -67,6 +67,16 @@ function renderFieldSet(groups) {
 }
 
 
+function getCurrentDateString() {
+    let currentDate = new Date();
+    let day = currentDate.getDate();
+    let month = currentDate.getMonth() + 1;
+    let year = currentDate.getFullYear();
+
+    return `${day}/${month}/${year}`
+}
+
+
 @connect
 export default class FilterTemplate extends Template {
 
@@ -177,7 +187,7 @@ export default class FilterTemplate extends Template {
 
     renderCalendarInput(option, index) {
         let state = this.props.filterOptionsState[option.name] || {};
-        let defaultValue = option.defaultValue || new Date().format('d/m/Y');
+        let defaultValue = option.defaultValue || getCurrentDateString();
 
         return (
             <label key={`filter_input_${index}`}>
