@@ -177,6 +177,7 @@ export default class FilterTemplate extends Template {
 
     renderCalendarInput(option, index) {
         let state = this.props.filterOptionsState[option.name] || {};
+        let defaultValue = option.defaultValue || new Date().format('d/m/Y');
 
         return (
             <label key={`filter_input_${index}`}>
@@ -189,7 +190,7 @@ export default class FilterTemplate extends Template {
                     openOnInputFocus={true}
                     hideIcon={true}
                     placeholder={option.placeholder}
-                    date={state.value || ''}
+                    date={state.value || defaultValue}
                     computableFormat="YYYY-MM-DD"
                     onChange={this.handleCalendarInput(option)}
                 />
