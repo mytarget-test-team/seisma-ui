@@ -22,12 +22,12 @@ const URLs = {
 
     jobResults: {
         page: JobResultsPage,
-        route: `/jobs/:job/results${
+        route: '/jobs/:job/results',
+        link: (jobName) => `/jobs/${URLEncode(jobName)}/results${
             objectToGetParamsString({
                 date_from: dateToString( new Date())
             })
-        }`,
-        link: (jobName) => `/jobs/${URLEncode(jobName)}/results`
+        }`
     },
 
     builds: {
