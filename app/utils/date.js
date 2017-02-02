@@ -1,6 +1,9 @@
 'use strict';
 
 
+const MILLISECONDS_IN_DAY = 86400000;
+
+
 export function stringToDate(dateString) {
     /*
         Convert string to date object
@@ -49,4 +52,9 @@ export function dateToString(date, format = 'y-m-d') {
     format = format.replace('y', year);
 
     return format
+}
+
+
+export function minusDays(date, days) {
+    return new Date(date - (days*MILLISECONDS_IN_DAY))
 }

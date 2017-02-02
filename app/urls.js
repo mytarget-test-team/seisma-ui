@@ -1,6 +1,6 @@
 'use strict';
 
-import { dateToString } from './utils/date';
+import { dateToString, minusDays } from './utils/date';
 import { URLEncode, objectToGetParamsString } from './utils/http';
 
 import MainPage from './pages/mainPage';
@@ -25,7 +25,7 @@ const URLs = {
         route: '/jobs/:job/results',
         link: (jobName) => `/jobs/${URLEncode(jobName)}/results${
             objectToGetParamsString({
-                date_from: dateToString(new Date())
+                date_from: dateToString(minusDays(new Date(), 1))
             })
         }`
     },
@@ -35,7 +35,7 @@ const URLs = {
         route: '/jobs/:job/builds',
         link: (jobName) => `/jobs/${URLEncode(jobName)}/builds${
             objectToGetParamsString({
-                date_from: dateToString(new Date())
+                date_from: dateToString(minusDays(new Date(), 1))
             })
         }`
     },
@@ -56,7 +56,7 @@ const URLs = {
         link: (jobName, caseName) => {
             return `/jobs/${URLEncode(jobName)}/cases/${URLEncode(caseName)}${
                 objectToGetParamsString({
-                    date_from: dateToString(new Date())
+                    date_from: dateToString(minusDays(new Date(), 1))
                 })
             }`
         }
