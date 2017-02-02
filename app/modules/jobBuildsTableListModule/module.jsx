@@ -114,12 +114,7 @@ const FILTER_OPTIONS = [
         name: 'sort_by',
         selectOptions: {
             Date: 'date',
-            Title: 'title',
             Runtime: 'runtime',
-            'Error count': 'error_count',
-            'Fail count': 'fail_count',
-            'Success count': 'success_count',
-            'Tests count': 'tests_count'
         },
         title: 'Sort by'
     }
