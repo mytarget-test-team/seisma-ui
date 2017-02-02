@@ -25,7 +25,7 @@ const URLs = {
         route: '/jobs/:job/results',
         link: (jobName) => `/jobs/${URLEncode(jobName)}/results${
             objectToGetParamsString({
-                date_from: dateToString( new Date())
+                date_from: dateToString(new Date())
             })
         }`
     },
@@ -35,7 +35,7 @@ const URLs = {
         route: '/jobs/:job/builds',
         link: (jobName) => `/jobs/${URLEncode(jobName)}/builds${
             objectToGetParamsString({
-                date_from: dateToString( new Date())
+                date_from: dateToString(new Date())
             })
         }`
     },
@@ -56,7 +56,7 @@ const URLs = {
         link: (jobName, caseName) => {
             return `/jobs/${URLEncode(jobName)}/cases/${URLEncode(caseName)}${
                 objectToGetParamsString({
-                    date_from: dateToString( new Date())
+                    date_from: dateToString(new Date())
                 })
             }`
         }
