@@ -1,6 +1,7 @@
 'use strict';
 
-import { URLEncode } from './utils/http';
+import { dateToString } from './utils/date';
+import { URLEncode, objectToGetParamsString } from './utils/http';
 
 import MainPage from './pages/mainPage';
 
@@ -21,14 +22,22 @@ const URLs = {
 
     jobResults: {
         page: JobResultsPage,
-        route: '/jobs/:job/results',
+        route: `/jobs/:job/results${
+            objectToGetParamsString({
+                date_from: dateToString( new Date())
+            })
+        }`,
         link: (jobName) => `/jobs/${URLEncode(jobName)}/results`
     },
 
     builds: {
         page: JobBuildsPage,
         route: '/jobs/:job/builds',
-        link: (jobName) => `/jobs/${URLEncode(jobName)}/builds`
+        link: (jobName) => `/jobs/${URLEncode(jobName)}/builds${
+            objectToGetParamsString({
+                date_from: dateToString( new Date())
+            })
+        }`
     },
     build: {
         page: BuildResultsPage,
@@ -45,7 +54,11 @@ const URLs = {
         page: CaseResultsPage,
         route: '/jobs/:job/cases/:case',
         link: (jobName, caseName) => {
-            return `/jobs/${URLEncode(jobName)}/cases/${URLEncode(caseName)}`
+            return `/jobs/${URLEncode(jobName)}/cases/${URLEncode(caseName)}${
+                objectToGetParamsString({
+                    date_from: dateToString( new Date())
+                })
+            }`
         }
     },
     caseResult: {

@@ -35,3 +35,18 @@ export function calcTimeDiffByMinutesFromDate(startTime) {
 
     return Math.floor((diff / 1000) / 60);
 }
+
+
+export function dateToString(date, format = 'y-m-d') {
+    let localeString = date.toLocaleDateString();
+    let dateArray = localeString.split('.');
+    let day = dateArray[0];
+    let month = dateArray[1];
+    let year = dateArray[2];
+
+    format = format.replace('d', day);
+    format = format.replace('m', month);
+    format = format.replace('y', year);
+
+    return format
+}
