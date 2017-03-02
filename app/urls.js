@@ -5,6 +5,7 @@ import { URLEncode, objectToGetParamsString } from './utils/http';
 
 import MainPage from './pages/mainPage';
 
+import MonitorPage from './pages/monitorPage';
 import JobCasesPage from './pages/jobCasesPage';
 import JobBuildsPage from './pages/jobBuildsPage';
 import JobResultsPage from './pages/jobResultsPage';
@@ -18,6 +19,12 @@ const URLs = {
         page: MainPage,
         route: '/',
         link: () => '/'
+    },
+
+    monitor: {
+        page: MonitorPage,
+        route: '/monitor',
+        link: () => '/monitor'
     },
 
     jobResults: {

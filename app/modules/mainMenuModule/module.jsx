@@ -16,6 +16,10 @@ export default class MainMenuModule extends Module {
                 {
                     text: 'Main',
                     url: URLs.main.link()
+                },
+                {
+                    text: 'Monitor',
+                    url: URLs.monitor.link()
                 }
             ]
         };
