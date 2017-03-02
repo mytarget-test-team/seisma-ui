@@ -374,7 +374,6 @@ a:hover {
   box-sizing: border-box;
   position: relative;
   width: calc(100% / 50);
-  /*width: calc(100% / 50);*/
   border: 1px solid #fff;
   height: 150px;
   max-height: none;
