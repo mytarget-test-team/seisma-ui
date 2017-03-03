@@ -17,9 +17,6 @@ const URLs = {
     },
     badBuilds: () => {
         return '/dashboard/builds/bad'
-    },
-    buildsByJobs: () => {
-        return '/builds'
     }
 };
 
@@ -112,26 +109,6 @@ export class LastBadBuildListLoader extends BaseResourceLoader {
     load(requestParams) {
         return this.client.startRequest(
             URLs.badBuilds(), requestParams,
-        )
-    }
-}
-
-
-export class BuildsByJobsLoader extends BaseResourceLoader {
-    /*
-        Load builds by all jobs.
-     */
-    constructor() {
-        super([
-            'BUILDS_BY_JOBS_REQUEST',
-            'BUILDS_BY_JOBS_SUCCESS',
-            'BUILDS_BY_JOBS_FAILURE',
-        ]);
-    }
-
-    load(requestParams) {
-        return this.client.startRequest(
-            URLs.buildsByJobs(), requestParams,
         )
     }
 }

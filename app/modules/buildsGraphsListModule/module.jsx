@@ -2,43 +2,24 @@
 
 import React from 'react';
 
-import { Module, connect, defaultProp, requiredProp } from '../../core';
+import { Module, connect } from '../../core';
 
 import ColorLegendComponent from '../../components/colorLegendComponent';
 
-import BuildsByJobsEngine from '../buildsGraphsListModule/engine';
+import BuildsFromJobsEngine from '../buildsGraphsListModule/engine';
 
 import PageTitleModule from '../../modules/pageTitleModule';
 
 import GraphTemplate from '../../components/graphComponent/template';
 
 
-const DEFAULT_MAX_BUILDS_ON_GRAPH = 50;
-
-
 @connect(
-    new BuildsByJobsEngine(),
+    new BuildsFromJobsEngine(),
 )
 export default class BuildsGraphsListModule extends Module {
 
-    @requiredProp
-    get job() {
-        return this.props.job
-    }
-
-    @defaultProp(DEFAULT_MAX_BUILDS_ON_GRAPH)
-    get maxBuilds() {
-        return this.props.maxBuilds
-    }
-
     getData() {
-        this.configureEngines({
-            BuildsByJobsEngine: {
-                maxBuilds: this.maxBuilds
-            }
-        });
-
-        this.actions.getBuildsByJobs()
+        this.actions.getBuildsFromJobs()
     }
 
     renderColorLegend() {
@@ -71,27 +52,25 @@ export default class BuildsGraphsListModule extends Module {
 
     render() {
         let tables = [];
-        if (this.states.buildsByJobsDataState.data) {
-            Object.entries(this.states.buildsByJobsDataState.data).map(
-                ([jobName, builds]) => {
-                    let graphProps = {
-                        data: builds,
-                        error: this.states.buildsByJobsDataState.error,
-                        isLoading: this.states.buildsByJobsDataState.loading,
-                        isClickable: false,
-                        ignoreErrors: true,
-                        calculateFromField: 'runtime'
-                    };
+        if (this.states.buildsFromJobsDataState.data) {
+            this.states.buildsFromJobsDataState.data.map((item) => {
+                let graphProps = {
+                    data: item.last_builds,
+                    error: this.states.buildsFromJobsDataState.error,
+                    isLoading: this.states.buildsFromJobsDataState.loading,
+                    isClickable: false,
+                    ignoreErrors: true,
+                    calculateFromField: 'runtime'
+                };
 
-                    let table_element = (
-                        <div>
-                            <PageTitleModule title={jobName}/>
-                            <GraphTemplate {...graphProps}/>
-                        </div>
-                    );
-                    tables.push(table_element);
-                }
-            );
+                let table_element = (
+                    <div>
+                        <PageTitleModule title={item.title}/>
+                        <GraphTemplate {...graphProps}/>
+                    </div>
+                );
+                tables.push(table_element);
+            });
         }
         let classNames = [
             'module',

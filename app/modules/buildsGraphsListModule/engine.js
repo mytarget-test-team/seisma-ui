@@ -2,10 +2,18 @@
 
 import ApiEngine from '../../api/engine';
 import { actionName, stateName } from '../../core';
-import { BuildsByJobsLoader } from '../../api/buildResource';
+import { JobListLoader } from '../../api/jobResource';
 
 
-export default class BuildsByJobsEngine extends ApiEngine {
+const FIELDS_TO_LOAD = [
+    'title',
+    'last_builds',
+    'runtime',
+    'was_success'
+];
+
+
+export default class BuildsFromJobsEngine extends ApiEngine {
     /*
      Engine for getting builds data for all jobs
      */
@@ -13,17 +21,16 @@ export default class BuildsByJobsEngine extends ApiEngine {
     constructor() {
         super();
 
-        this.loader = new BuildsByJobsLoader();
+        this.loader = new JobListLoader()
+            .setFieldsToLoad(FIELDS_TO_LOAD);
     }
 
-    @actionName('getBuildsByJobs')
+    @actionName('getBuildsFromJobs')
     actionCreator() {
-        return this.loader.load({
-            builds_limit: this.config.maxBuilds
-        })
+        return this.loader.load()
     }
 
-    @stateName('buildsByJobsDataState')
+    @stateName('buildsFromJobsDataState')
     stateCreator(...args) {
         return this.defaultReducer(...args)
     }
