@@ -64,7 +64,7 @@ export default class BuildsGraphsListModule extends Module {
                 };
 
                 let table_element = (
-                    <div>
+                    <div className="graph-monitor-content">
                         <PageTitleModule title={item.title}/>
                         <GraphTemplate {...graphProps}/>
                     </div>

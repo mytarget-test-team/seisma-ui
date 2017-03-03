@@ -702,3 +702,7 @@ p.case-reason {
 .graph {
   width: 100%;
 }
+
+.graph-monitor-content {
+  padding-top: 10px;
+}
