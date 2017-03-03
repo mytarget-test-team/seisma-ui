@@ -698,3 +698,11 @@ select {
 p.case-reason {
   padding-left: 20px;
 }
+
+.graph {
+  width: 100%;
+}
+
+.graph-monitor-content {
+  padding-top: 10px;
+}
