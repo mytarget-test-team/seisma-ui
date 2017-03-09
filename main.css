@@ -99,6 +99,9 @@ a:hover {
   text-decoration: none;
   border-radius: 0 5px 0 5px;
 }
+.menu__item {
+  padding-right: 10px;
+}
 
 .module__title.tabs + .list_component > *:first-child:not(.error) {
   border-radius: 0;
