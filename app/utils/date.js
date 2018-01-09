@@ -41,11 +41,30 @@ export function calcTimeDiffByMinutesFromDate(startTime) {
 
 
 export function dateToString(date, format = 'y-m-d') {
+    let dateArray;
+
+    let dayIndex = 0;
+    let monthIndex = 1;
+    let yearIndex = 2;
+
     let localeString = date.toLocaleDateString();
-    let dateArray = localeString.split('.');
-    let day = dateArray[0];
-    let month = dateArray[1];
-    let year = dateArray[2];
+
+    if (localeString.indexOf('/') != -1) {
+        dayIndex = 1
+        monthIndex = 0 
+
+        dateArray = localeString.split('/');
+    } else if (localeString.indexOf('.') != -1) {
+        dateArray = localeString.split('.');
+    } else if (localeString.indexOf('-') != -1) {
+        dateArray = localeString.split('-');
+    } else {
+        throw new Error('Can not find separator');
+    }
+
+    let day = dateArray[dayIndex];
+    let month = dateArray[monthIndex];
+    let year = dateArray[yearIndex];
 
     format = format.replace('d', day);
     format = format.replace('m', month);
