@@ -13,27 +13,45 @@ class DialectReason {
     renderPython() {
         let needBold = false;
         let isFirstLine = true;
+        let www_reg = /\b(https?:\/\/\S+)\b/gi;
 
         return (
             <div>
                 {
                     this.reason.split('\n').map((item, index) => {
-                        let node;
+                        let node = []
+                        let istitle = 0
 
                         if (isFirstLine || needBold) {
                             needBold = false;
                             isFirstLine = false;
-
-                            node = <h3 key={`reason_text_${index}`}>{item}<br/></h3>;
+                            istitle = 1
                         } else {
                             if (item === '') {
                                 needBold = true;
                             }
-
-                            node = <p key={`reason_text_${index}`} className="case-reason">{item}<br/></p>;
                         }
-
-                        return node
+                        item.split(www_reg).map((block,idx) => {
+                            if (block.match(www_reg)) {
+                                node.push(<a href={block}>{block}</a>)
+                            } else {
+                                node.push(block)
+                            }
+                        });
+                        node.push(<br/>)
+                        if (istitle) {
+                            return (
+                                <h2 key={`reason_text_${index}`}>
+                                {node}
+                                </h2>
+                            )
+                        } else {
+                            return (
+                                <p key={`reason_text_${index}`} className="case-reason">
+                                {node}
+                                </p>
+                            )
+                        }
                     })
                 }
             </div>
