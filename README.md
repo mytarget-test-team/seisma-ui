@@ -13,8 +13,8 @@ Publish image
 -------------
 
 ```bash
-export REGISTRY_LOGIN=<login>
-export REGISTRY_PASSWORD=<password>
+export DOCKER_USERNAME=<login>
+export DOCKER_PASSWORD=<password>
 
 make publish
 ```
