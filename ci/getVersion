@@ -9,15 +9,11 @@ fi
 set -e
 
 if [ -n "${CIRRUS_TAG}" ]; then
-    BRANCH=${CIRRUS_TAG}
+    VERSION=${CIRRUS_TAG}
 fi
 
-if [ -z "${BRANCH}" ]; then
-    BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ -z "${VERSION}" ]; then
+    VERSION=$(git rev-parse --abbrev-ref HEAD)
 fi
 
-if [ "${BRANCH}" == "master" ]; then
-    BRANCH=latest
-fi
-
-echo "${BRANCH}" | ${SED} -r 's!^.*/!!g'
+echo "${VERSION}" | ${SED} -r 's!^.*/!!g'
