@@ -12,6 +12,6 @@ build:
 	$(DOCKER) tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMAGE_NAME):latest
 
 publish:
-	$(DOCKER) login -u $(REGISTRY_LOGIN) -p $(REGISTRY_PASSWORD)
+	$(DOCKER) login -u $(DOCKER_USERNAME) -p $(DOCKER_PASSWORD)
 	$(DOCKER) push $(IMAGE_NAME):$(IMAGE_TAG)
 	$(DOCKER) push $(IMAGE_NAME):latest
