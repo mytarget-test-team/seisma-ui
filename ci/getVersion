@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [[ "$OSTYPE" == "darwin"*  ]]; then
+    SED=gsed
+else
+    SED=sed
+fi
+
+set -e
+
+if [ -z "${BRANCH}" ]; then
+    BRANCH=$(git rev-parse --abbrev-ref HEAD)
+fi
+
+if [ "${BRANCH}" == "master" ]; then
+    BRANCH=latest
+fi
+
+echo "${BRANCH}" | ${SED} -r 's!^.*/!!g'

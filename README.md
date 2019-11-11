@@ -2,33 +2,26 @@ UI interface to seisma test analytic server
 ===========================================
 
 
-Versions recommend
-------------------
+Build image
+-----------
 
-* node: 6.3.1
-* npm: 3.10.3
+```bash
+make build
+```
 
+Publish image
+-------------
 
-With nvm
---------
+```bash
+export REGISTRY_LOGIN=<login>
+export REGISTRY_PASSWORD=<password>
 
-    nvm install 6.3.1 && nvm use 6.3.1
+make publish
+```
 
+Container environments
+----------------------
 
-Build
------
-
-    npm install && npm run build
-
-
-Run watch for development
--------------------------
-
-    npm run watch
-
-
-Links
------
-
-* Server: https://github.com/trifonovmixail/seisma-server
-* Puppet(vagrant VM, docker container): https://github.com/trifonovmixail/seisma-puppet
+* **API_HOST** - api server host
+* **WORKER_PROCESSES** - nginx worker processes
+* **WORKER_CONNECTIONS** - nginx worker connections

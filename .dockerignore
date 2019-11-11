@@ -1,5 +1,5 @@
 .idea/
-build/
+.git/
 node_modules/
-package-lock.json
 bundle.js
+package-lock.json
