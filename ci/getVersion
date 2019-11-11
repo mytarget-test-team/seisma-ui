@@ -8,6 +8,10 @@ fi
 
 set -e
 
+if [ -n "${CIRRUS_TAG}" ]; then
+    BRANCH=${CIRRUS_TAG}
+fi
+
 if [ -z "${BRANCH}" ]; then
     BRANCH=$(git rev-parse --abbrev-ref HEAD)
 fi
