@@ -35,6 +35,8 @@ http {
 
     keepalive_timeout  65;
 
+    reset_timedout_connection on;
+
     #gzip  on;
 
     include /etc/nginx/conf.d/*.conf;
