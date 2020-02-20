@@ -5,7 +5,7 @@ WORKDIR /usr/local/src/seisma-ui
 RUN npm install && npm run build
 
 
-FROM nginx:1.17.2
+FROM nginx:1.16.1
 
 COPY --from=build /usr/local/src/seisma-ui /usr/local/src/seisma-ui
 
