@@ -26,7 +26,7 @@
     "eslint": "3.9.0",
     "eslint-plugin-react": "6.5.0",
     "stylus": "0.54.5",
-    "webpack": "1.14.0"
+    "webpack": "5.94.0"
   },
   "dependencies": {
     "babel-loader": "6.2.10",
@@ -41,7 +41,7 @@
     "redux": "3.6.0",
     "redux-logger": "2.7.4",
     "redux-thunk": "2.1.0",
-    "webpack": "1.14.0",
+    "webpack": "5.94.0",
     "react-input-calendar": "0.3.14",
     "moment": "2.17.1",
     "moment-range": "2.2.0"
